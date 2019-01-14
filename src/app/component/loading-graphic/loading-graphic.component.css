@@ -1,0 +1,74 @@
+.loading-graphic {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.loading-circle-1,
+.loading-circle-2 {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation-name: growCircle;
+          animation-name: growCircle;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.loading-circle-2 {
+  -webkit-animation-delay: .75s;
+          animation-delay: .75s;
+}
+
+.loading-icon-fill {
+  position: absolute;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  background-color: white;
+}
+
+.loading-icon {
+  font-size: 60px;
+  display: block;
+  color: #1c83c5;
+  position: absolute;
+  margin: -35px 0 0 -30px;
+}
+
+/* The animation code */
+@-webkit-keyframes growCircle {
+    from {
+      width: 5px;
+      height: 5px;
+      border: 8px solid #1c83c5;
+      border-radius: 10px;
+      opacity: .5;
+    }
+    to {
+      width: 150px;
+      height: 150px;
+      border: 15px solid #1c83c5;
+      border-radius: 100px;
+      opacity: 0;
+    }
+}
+@keyframes growCircle {
+    from {
+      width: 5px;
+      height: 5px;
+      border: 8px solid #1c83c5;
+      border-radius: 10px;
+      opacity: .5;
+    }
+    to {
+      width: 150px;
+      height: 150px;
+      border: 15px solid #1c83c5;
+      border-radius: 100px;
+      opacity: 0;
+    }
+}

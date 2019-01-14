@@ -1,0 +1,1062 @@
+/* -----
+    Rules for writing CSS in this project
+    1. class names longer than one word should be hyphenated (i.e.: .example-class)
+    2. IDs should be camelcase if longer than one word (i.e.: #exampleId)
+    3. try to keep names descriptive, but as short as possible
+    4. for chained selectors try not to go deeper than 3
+    5. numerals should be used at the end of a name
+        a. numbers in the name anywhere other then the end should be written out
+    6. vendor prefix should only be used where necessary
+    7. avoid !important wherever possible, consider using more specific css instead
+----- */
+
+/* Add global styles and imports to this file */
+
+/* fonts - text */
+@font-face {
+    font-family:'Ubuntu Light';
+    src: url('assets/fonts/Ubuntu-Light.eot');
+	  src: url('assets/fonts/Ubuntu-Light.eot?#iefix') format('embedded-opentype'),
+  		url('assets/fonts/Ubuntu-Light.woff2') format('woff2'),
+  		url('assets/fonts/Ubuntu-Light.woff') format('woff'),
+  		url('assets/fonts/Ubuntu-Light.ttf') format('truetype'),
+  		url('assets/fonts/Ubuntu-Light.svg#Ubuntu Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2074;
+}
+
+@font-face {
+    font-family:'Ubuntu';
+    src: url('assets/fonts/Ubuntu.eot');
+	  src: url('assets/fonts/Ubuntu.eot?#iefix') format('embedded-opentype'),
+		    url('assets/fonts/Ubuntu.woff2') format('woff2'),
+		    url('assets/fonts/Ubuntu.woff') format('woff'),
+		    url('assets/fonts/Ubuntu.ttf') format('truetype'),
+		    url('assets/fonts/Ubuntu.svg#Ubuntu') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2074;
+}
+
+@font-face {
+    font-family:'Ubuntu Medium';
+    src: url('assets/fonts/Ubuntu-Medium.eot');
+	  src: url('assets/fonts/Ubuntu-Medium.eot?#iefix') format('embedded-opentype'),
+    		url('assets/fonts/Ubuntu-Medium.woff2') format('woff2'),
+    		url('assets/fonts/Ubuntu-Medium.woff') format('woff'),
+    		url('assets/fonts/Ubuntu-Medium.ttf') format('truetype'),
+    		url('assets/fonts/Ubuntu-Medium.svg#Ubuntu Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2074;
+}
+
+@font-face {
+    font-family:'Ubuntu Bold';
+    src: url('assets/fonts/Ubuntu-Bold.eot');
+	  src: url('assets/fonts/Ubuntu-Bold.eot?#iefix') format('embedded-opentype'),
+    		url('assets/fonts/Ubuntu-Bold.woff2') format('woff2'),
+    		url('assets/fonts/Ubuntu-Bold.woff') format('woff'),
+    		url('assets/fonts/Ubuntu-Bold.ttf') format('truetype'),
+    		url('assets/fonts/Ubuntu-Bold.svg#Ubuntu Bold') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-2074;
+}
+
+/* font icons */
+@font-face {
+  font-family: 'corp-am';
+  src:
+    url('assets/fonts/corp-am.ttf?bgrzxw') format('truetype'),
+    url('assets/fonts/corp-am.woff?bgrzxw') format('woff'),
+    url('assets/fonts/corp-am.svg?bgrzxw#corp-am') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'corp-am' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ticket:before {
+  content: "\e90a";
+}
+.icon-edit:before {
+  content: "\e900";
+}
+.icon-pencil-square-o:before {
+  content: "\e900";
+}
+.icon-account_balance:before {
+  content: "\e84f";
+}
+.icon-account_circle:before {
+  content: "\e853";
+}
+.icon-arrow_drop_down:before {
+  content: "\e5c5";
+}
+.icon-arrow_drop_up:before {
+  content: "\e5c7";
+}
+.icon-cloud_upload:before {
+  content: "\e2c3";
+}
+.icon-business_center:before {
+  content: "\eb3f";
+}
+.icon-cached:before {
+  content: "\e86a";
+}
+.icon-check_box:before {
+  content: "\e834";
+}
+.icon-check_box_outline_blank:before {
+  content: "\e835";
+}
+.icon-navigate_before:before {
+  content: "\e408";
+}
+.icon-navigate_next:before {
+  content: "\e409";
+}
+.icon-cloud_download:before {
+  content: "\e2c0";
+}
+.icon-dehaze:before {
+  content: "\e3c7";
+}
+.icon-delete:before {
+  content: "\e872";
+}
+.icon-markunread:before {
+  content: "\e159";
+}
+.icon-expand_less:before {
+  content: "\e5ce";
+}
+.icon-expand_more:before {
+  content: "\e5cf";
+}
+.icon-get_app:before {
+  content: "\e884";
+}
+.icon-file_upload:before {
+  content: "\e2c6";
+}
+.icon-first_page:before {
+  content: "\e5dc";
+}
+.icon-home:before {
+  content: "\e88a";
+}
+.icon-indeterminate_check_box:before {
+  content: "\e909";
+}
+.icon-insert_comment:before {
+  content: "\e24c";
+}
+.icon-last_page:before {
+  content: "\e5dd";
+}
+.icon-print:before {
+  content: "\e8ad";
+}
+.icon-location_city:before {
+  content: "\e7f1";
+}
+.icon-menu:before {
+  content: "\e5d2";
+}
+.icon-more_horiz:before {
+  content: "\e5d3";
+}
+.icon-more_vert:before {
+  content: "\e5d4";
+}
+.icon-radio_button_unchecked:before {
+  content: "\e836";
+}
+.icon-person:before {
+  content: "\e7fd";
+}
+.icon-radio_button_checked:before {
+  content: "\e837";
+}
+.icon-refresh:before {
+  content: "\e5d5";
+}
+.icon-search:before {
+  content: "\e8b6";
+}
+.icon-settings:before {
+  content: "\e8b8";
+}
+.icon-supervisor_account:before {
+  content: "\e8d3";
+}
+.icon-calendar:before {
+  content: "\e953";
+}
+.icon-profile:before {
+  content: "\e920";
+}
+.icon-stack:before {
+  content: "\e921";
+}
+.icon-export:before {
+  content: "\e922";
+}
+.icon-move-tool:before {
+  content: "\ea7e";
+}
+.icon-refresh-arrow:before {
+  content: "\e901";
+}
+
+
+/* Global DOM Styles */
+html, body{
+  height: 100%;
+  margin: 0;
+}
+
+body{
+  font-family: Helvetica, Arial, sans-serif;
+  width: 100%;
+  min-width: 1000px;
+  background-color: #f3f3f3;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  font-family: 'Ubuntu';
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+h3 {
+  font-family: "Ubuntu Medium";
+  font-weight: normal !important;
+}
+
+/*Styled Checkbox*/
+Corey [15:22]
+.styled-check {
+   display: none;
+}
+
+.styled-check + label {
+   background-color: #fff;
+   border: 1px solid #cacece;
+   padding: 9px;
+   border-radius: 3px;
+   display: inline-block;
+   position: relative;
+   margin: 0;
+   cursor: pointer;
+}
+
+.styled-check:checked + label {
+   background-color: #67809f;
+   border: 1px solid #adb8c0;
+   color: #fff;
+}
+
+.styled-check:checked + label:after {
+   content: '\2714';
+   font-size: 13px;
+   position: absolute;
+   top: 0px;
+   left: 3px;
+   color: #fff;
+}
+
+/*Styled Select*/
+select::-ms-expand {
+   display: none
+}
+
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   font-size: 13px;
+   border: 1px solid #DDE1E7;
+   min-height: 35px;
+   border-radius: 4px;
+   padding: 2px 3px;
+   width: 100%;
+   margin-bottom: 10px;
+}
+
+select:focus {
+   border-color: #67809f;
+}
+
+.select-drop{
+   position: relative;
+}
+
+.select-drop:after{
+   font-family: 'j2es-fonts';
+   content: "\e915";
+   color: #9b9b9b;
+   position: absolute;
+   top: 7px;
+   right: 5px;
+   pointer-events: none;
+   font-size: 16px;
+}
+
+/* body section defaults */
+.content-area {
+  padding: 20px !important;
+  font-size: 14px;
+  font-family: 'Ubuntu';
+  overflow: auto;
+  height: calc(100% - 43px);
+}
+
+.btn {
+  background-color: #1c83c5;
+  color: #fff;
+  padding: 6px 12px;
+  margin: 5px 0 0 0;
+  border-radius: 5px;
+  font-size: 13px;
+  border: 1px solid #1E84C4;
+  border-bottom: 3px solid #13557F;
+  cursor: pointer;
+}
+
+.btn.btn-secondary {
+    color: #878C8F;
+    background-color: #D0D9DD;
+    border: 1px solid #D0D9DD;
+    border-bottom: 3px solid #878C8F;
+}
+
+.disabledBtn {
+  background-color: #dbdbdb;
+  color: #666666;
+  margin: 15px 10px 0 0 !important;
+  border-top: 1px solid #eaeaea;
+  border-left: 1px solid #9a9a9a;
+  border-right: 1px solid #9a9a9a;
+  border-bottom: 1px solid #9a9a9a;
+  -webkit-box-shadow: 0px 2px 0px 0px rgba(120,120,120,1);
+          box-shadow: 0px 2px 0px 0px rgba(120,120,120,1);
+}
+
+.btn.disabledBtn:hover {
+  background-color: #c8c8c8;
+  border-top: 1px solid #d1d1d1;
+}
+
+.link-msg {
+  text-decoration: underline;
+  z-index: 1000;
+}
+
+/* ------- SECTION HEADER STYLES ------- */
+.uc-first-letter {
+  text-transform: capitalize;
+}
+
+.ico {
+  font-size: 25px;
+  background-color: #1c83c5;
+  padding: 8px;
+  border-radius: 3px;
+  display: block;
+  vertical-align: top;
+  color: #fff;
+}
+
+.icon-and-title {
+  float: left;
+}
+
+.section-icon {
+  float: left;
+}
+
+.title-and-breadcrumbs {
+  float: left;
+  margin: 2px 0 0 10px;
+}
+
+.section-title {
+  font-family: 'Ubuntu';
+  font-size: 20px;
+}
+
+.section-breadcrumbs {
+  font-family: 'Ubuntu';
+  font-size: 11px;
+  margin: 4px 0 0 0;
+}
+
+.section-breadcrumbs a {
+  text-decoration: none;
+  color: #1c83c5;
+}
+
+.dateRange input.selection {
+  font-family: 'Ubuntu';
+  font-size: 12px !important;
+  height: 30px !important;
+  color: #222;
+}
+
+.dateRange .selbtngroup {
+  height: 28px !important;
+}
+
+.dateRangePickerCreditSearch .mydrp {
+  width: 200px !important;
+}
+
+.dateRangePickerUpdates .mydrp {
+  border: 1px solid #1c83c5;
+  width: calc(100% - 60px);
+}
+
+.btnpicker.btnpickerenabled {
+  background: #1c83c5 !important;
+}
+
+.mydrp .selection {
+  padding: 0 50px 0 6px !important;
+}
+
+.mydrp .mydrpicon {
+  font-family: corp-am !important;
+}
+
+.mydrp .btnpicker {
+  width: 30px !important;
+  border-radius: 0 2px 2px 0 !important;
+}
+
+.mydrp .icon-mydrpcalendar:before {
+  display: block;
+  content: "\e953" !important;
+  color: #ffffff;
+  font-size: 14px !important;
+}
+
+#mydaterangeApps .mydrp .disabled,
+#mydaterangeApps .mydrp .disabled .nextmonth {
+    cursor: default !important;
+    color: #cacaca !important;
+    background: #FFF !important;
+}
+
+.selectiongroup {
+  height: 30px !important;
+}
+
+.headerbtn.icon-mydrpleft {
+  height: 16px !important;
+}
+
+.icon-mydrpleft:before {
+  display: block;
+  content: "\e902" !important;
+  font-size: 13px !important;
+}
+
+.icon-mydrpright:before {
+  display: block;
+  content: "\e903" !important;
+  font-size: 13px !important;
+}
+
+.icon-mydrpremove:before {
+  display: block;
+  content: "\e91f" !important;
+  font-size: 13px !important;
+}
+
+.headerclearbtn {
+  border: none !important;
+}
+
+.btnclear {
+  height: auto !important;
+}
+
+.btnclear:hover {
+  background: none !important;
+}
+
+.markcurrday {
+  text-decoration: none !important;
+  background-color: #7c7c7c;
+  color: #fff;
+}
+
+.range {
+  background-color: #c1e7fd !important;
+}
+
+/* ------- FORM STYLES ------- */
+
+input,
+select,
+textarea {
+  font-family: 'Ubuntu';
+  font-size: 12px;
+}
+
+select[disabled], input[disabled], textarea[disabled] {
+  background-color: rgb(235, 235, 228);
+  border: 1px solid #cccccc;
+  color: #000;
+}
+
+.login-form-container input,
+.login-form-container select,
+.login-form-container textarea {
+  font-size: 14px;
+  padding: 4px;
+}
+
+.placeholder {
+  color: #999999;
+}
+.placeholder option {
+  color: #000000;
+}
+.placeholder option:nth-child(1) {
+  color: #999999 !important;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.form-section-title {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.form-section-first {
+  margin-top: 0;
+}
+
+.form-input {
+  padding: 7px 5px;
+}
+
+.form-input.static-text-block {
+  padding: 11px 5px 12px;
+}
+
+.form-input input[type=text],
+.form-input input[type=email],
+.form input[type=password]{
+  width: 236px;
+  font-size: 12px;
+  padding: 5px 4px;
+}
+
+.login-form-container .form-input input[type=text],
+.login-form-container .form-input input[type=email],
+.login-form-container .form input[type=password]{
+  font-size: 14px;
+}
+
+.form-input select {
+  width: 248px;
+  height: 25px;
+  font-size: 12px;
+}
+
+.login-form-container .form-input select {
+  font-size: 14px;
+}
+
+.form-input label {
+  display: inline-block;
+  width: calc(100% - 261px);
+  text-align: right;
+  font-size: 12px;
+  padding-right: 6px;
+}
+
+.login-form-container .form-input label {
+  font-size: 14px;
+}
+
+.form-input label.ocdLabel {
+  vertical-align: top;
+  margin-top: 12px;
+}
+
+.form-input .ocdTextarea {
+  width: 238px;
+  height: 50px;
+  padding: 4px;
+}
+
+.form-group.full-width-group .form-input label {
+  width: calc(50% - 122px);
+}
+
+.form-group .form-input.even,
+.trade-refs-col .even,
+.profiles-account .form-group .form-input:nth-child(even),
+.profiles-accounts-payable .form-group .form-input:nth-child(even) {
+  background-color: #ECECEC;
+}
+
+.form-group .form-input.odd,
+.trade-refs-col .odd,
+.profiles-account .form-group .form-input:nth-child(odd),
+.profiles-accounts-payable .form-group .form-input:nth-child(odd) {
+  background-color: #F8F8F8;
+}
+
+.dark-row {
+  background-color: #ECECEC !important;
+}
+
+.light-row {
+  background-color: #F8F8F8 !important;
+}
+
+.form-half-a {
+  width: calc(50% - 10px);
+  margin-right: 10px;
+}
+
+.form-half-b {
+  width: 50%;
+}
+
+.same-app-info {
+  margin-top: 0;
+}
+
+.same-app-info label {
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 12px 0 0 0;
+}
+
+.checkbox-position {
+  margin: 12px 0 0 4px;
+}
+
+.static-text {
+  display: inline-block;
+  font-size: 12px;
+  font-family: 'Ubuntu Medium';
+}
+
+.required {
+    color: red;
+}
+
+.form-message-modal {
+  width: 400px;
+  height: auto;
+  padding: 20px;
+  background-color: #1c83c5;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.form-message-text {
+  width: 355px;
+  color: #ffffff;
+  padding: 0 10px 0 0;
+}
+
+.form-message-close-btn {
+  padding: 10px 0 10px 10px;
+  background-color: transparent;
+  vertical-align: top;
+  float: left;
+  color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-message-close-btn.icon-mydrpremove:before {
+  font-size: 20px !important;
+}
+
+
+/* ------- FORM VALIDATION STYLES ------- */
+.errors-UL {
+  color: red;
+  font-size: 12px;
+  margin: 8px 0 5px;
+  padding: 0;
+  text-align: left;
+}
+
+.error-holder,
+.error-spacer {
+  display: inline-block;
+}
+
+.login-form-container .error-holder {
+    display: block;
+}
+
+.login-form-container .errors-UL{
+    margin-top: 5px;
+}
+
+.invalid-err-msg {
+  text-align: left;
+}
+
+/* Standard Table Styles */
+.table-data {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table-data td, .table-data th{
+  padding: 4px;
+}
+
+.table-data tr.even {
+  background-color: #f3f3f4
+}
+
+.table-data tr.odd {
+  background-color: #f9f9f9
+}
+
+
+/*----  TABS -----*/
+.tab-pane {
+  background-color: #fff;
+  padding: 10px;
+  max-height: 100%;
+  border-radius: 4px;
+}
+
+.company-profile .tab-3 .tab-pane,
+.company-profile .tab-4 .tab-pane,
+.company-profile .tab-5 .tab-pane {
+  padding: 20px 10px 10px;
+}
+
+.tab-head {
+  margin-bottom: 5px;
+}
+
+.tab-foot {
+  margin-top: 5px;
+}
+
+.tab-section ul.nav {
+  margin: 0 0 0 -1px;
+  padding: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-padding-start: 0;
+}
+
+.tab-section ul.nav li {
+  margin: -1px 0 0 1px;
+  padding: 9px 0 10px 23px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-color: #ececec;
+  display: inline-block;
+  cursor: pointer;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-family: 'Ubuntu Medium';
+  font-size: 11px;
+  color: #555555;
+  letter-spacing: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.tab-section ul.nav li:hover {
+  background-color: #e0e0e0;
+}
+
+.tab-section ul.nav li:before {
+  font-family: 'corp-am';
+  content: '\f067';
+  margin-left: -16px;
+  color: #000;
+  font-size: 14px;
+  list-style-type: none;
+  vertical-align: bottom;
+}
+
+.tab-section ul.nav li.active:before {
+  color: #1c83c5;
+}
+
+.tab-section ul.nav li:nth-child(1) {
+  margin-left: 0;
+}
+
+.tab-section ul.nav li.active {
+  border-bottom: solid 1px #fff;
+  color: #1c83c5;
+  background-color: #fff;
+}
+
+.tabs-hr {
+  width: 100%;
+  height: 1px;
+  background-color:#ccc;
+  margin-top: -1px;
+}
+
+
+.tester {
+  background-color: red !important;
+}
+
+.temp-info-display {
+  float: left;
+  margin: 15px 20px 0 20px;
+  color: red;
+}
+
+.vars-display {
+  margin: 20px 0 0 0;
+  padding: 0 15px 15px;
+  font-size: 12px;
+  float: left;
+}
+
+
+/* Export Styles */
+.export-btn {
+  color: #1c83c5;
+  font-size: 24px;
+  margin: 0 0 0 5px;
+  display: inline-block;
+}
+
+/* Print Styles */
+.print-btn {
+  color: #1c83c5;
+  font-size: 24px;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+@media screen and (min-width: 1200px) {
+
+  .profiles-admin .datatable-footer-inner {
+    height: 35px !important;
+  }
+
+  .profiles-admin .datatable-container .leftside-footer-items {
+    float: left;
+    margin: 12px 0 0 0;
+  }
+
+  .profiles-admin .datatable-container .pagination-holder {
+    float: right;
+    margin: 12px 0 0 0;
+  }
+
+  .pagination-shown .datatable-footer .datatable-footer-inner {
+    height: 40px !important;
+  }
+}
+
+@media print{
+    header, .nav, .btn, .print-btn {
+      display:none !important;
+    }
+
+    .content-area {
+      display: inline-block;
+      height: auto;
+      width: 100%;
+      overflow: visible;
+      padding: 0;
+      background-color: #fff;
+      page-break-after: avoid;
+    }
+
+    .form-container {
+      border: 0;
+      padding: 0;
+    }
+
+    .form-input {
+      padding:4px
+    }
+}
+
+/* modal styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal {
+  z-index: 1000;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+  max-width: 800px;
+  max-height: calc(100% - 40px);
+  background-color: #fff;
+  padding: 12px;
+  -webkit-box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0 13px 19px 2px rgba(0, 0, 0, 0.14),
+    0 5px 24px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2),
+    0 13px 19px 2px rgba(0, 0, 0, 0.14),
+    0 5px 24px 4px rgba(0, 0, 0, 0.12);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column
+}
+
+.modal-title {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.modal-body{
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.modal-body-container{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: auto;
+}
+
+.modal-footer{
+    margin: 10px 0 0;
+}
+
+#clipboard {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    top: 40px;
+    max-height: calc(100% - 80px);
+  }
+}
+
+@media screen and (-ms-high-contrast: none), (-ms-high-contrast: active){
+    .modal-body-container{
+        max-height: 600px;
+    }
+}
+
+.modal__close-btn {
+  border: 0;
+  background: none;
+  color: #2d2d2d;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* EOF CSS only put items that shouldn't be overwritten ever */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.clear {
+  clear: both;
+}
+
+.fillPage {
+  height: 100%;
+  width: 100%;
+}
+
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}

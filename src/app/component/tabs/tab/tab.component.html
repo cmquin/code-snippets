@@ -1,0 +1,14 @@
+<div [hidden]="!active" class="tab-pane">
+
+    <div class="tab-head-container">
+        <ng-content select=".tab-head"></ng-content>
+    </div>
+
+    <div [ngClass]="{'tab-body-container': true, 'tab-overflow': setOverflow}">
+        <ng-content></ng-content>
+    </div>
+    
+    <div class="tab-footer-container">
+        <ng-content select=".tab-foot"></ng-content>
+    </div>
+</div>

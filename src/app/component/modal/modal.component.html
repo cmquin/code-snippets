@@ -1,0 +1,13 @@
+<div [@modal] *ngIf="visible" class="modal">
+    <div class="modal-header-container">
+        <ng-content select=".modal-header"></ng-content>
+        <button *ngIf="closable" (click)="close()" aria-label="Close" class="modal__close-btn">X</button>
+    </div>
+    <div class="modal-body-container">
+        <ng-content></ng-content>
+    </div>
+    <div class="modal-footer-container">
+        <ng-content select=".modal-footer"></ng-content>
+    </div>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>

@@ -1,0 +1,3 @@
+<div #messageMarker></div>
+<div *ngIf="message" [ngClass]="{'message': message, 'message-error': message.type === 'error'}"
+title="Click to dismiss." (click)="clearMessage()" [innerHtml]="message.text"></div>

@@ -1,0 +1,13 @@
+<div class="loading-graphic" *ngIf="download && visible">
+  <div class="loading-circle-1"></div>
+  <div class="loading-circle-2"></div>
+  <div class="loading-icon-fill"></div>
+  <div class="loading-icon icon-cloud_download"></div>
+</div>
+
+<div class="loading-graphic" *ngIf="!download && visible">
+  <div class="loading-circle-1"></div>
+  <div class="loading-circle-2"></div>
+  <div class="loading-icon-fill"></div>
+  <div class="loading-icon icon-cloud_upload"></div>
+</div>

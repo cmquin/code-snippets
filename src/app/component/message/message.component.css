@@ -1,0 +1,23 @@
+.message {
+    background-color: #67809f;
+    color: #fff;
+    border: 1px solid #67809f;
+    border-radius: 2px;
+    padding: 5px 13px 5px 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.message:after {
+    content: "x";
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.message-error {
+    background-color: #CF041A;
+    color: #fff;
+    border-color: #CF041A;
+}
